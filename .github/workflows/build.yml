@@ -1,0 +1,124 @@
+name: Build Billettera Print Agent
+
+on:
+  # Déclencher sur push sur main
+  push:
+    branches: [ main, master ]
+  # Déclencher sur pull request
+  pull_request:
+    branches: [ main, master ]
+  # Permettre le déclenchement manuel
+  workflow_dispatch:
+
+jobs:
+  # ============================================
+  # BUILD WINDOWS
+  # ============================================
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.21'
+
+    - name: Download dependencies
+      run: go mod download
+
+    - name: Build Windows executable
+      run: |
+        go build -ldflags="-H windowsgui -s -w" -o BilletteraPrintAgent.exe ./cmd/agent
+
+    - name: Create distribution folder
+      run: |
+        mkdir dist
+        copy BilletteraPrintAgent.exe dist\
+        copy build\LISEZ-MOI-Windows.txt dist\LISEZ-MOI.txt
+
+    - name: Upload Windows artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: billettera-print-agent-windows
+        path: dist/
+
+  # ============================================
+  # BUILD MACOS (Intel)
+  # ============================================
+  build-macos:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.21'
+
+    - name: Download dependencies
+      run: go mod download
+
+    - name: Build macOS executable (Intel)
+      env:
+        CGO_ENABLED: 1
+        GOOS: darwin
+        GOARCH: amd64
+      run: |
+        go build -ldflags="-s -w" -o BilletteraPrintAgent ./cmd/agent
+
+    - name: Create distribution folder
+      run: |
+        mkdir dist
+        cp BilletteraPrintAgent dist/
+        cp build/LISEZ-MOI-macOS.txt dist/LISEZ-MOI.txt
+        chmod +x dist/BilletteraPrintAgent
+
+    - name: Upload macOS artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: billettera-print-agent-macos
+        path: dist/
+
+  # ============================================
+  # BUILD MACOS (Apple Silicon M1/M2)
+  # ============================================
+  build-macos-arm64:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.21'
+
+    - name: Download dependencies
+      run: go mod download
+
+    - name: Build macOS executable (ARM64)
+      env:
+        CGO_ENABLED: 1
+        GOOS: darwin
+        GOARCH: arm64
+      run: |
+        go build -ldflags="-s -w" -o BilletteraPrintAgent-arm64 ./cmd/agent
+
+    - name: Create distribution folder
+      run: |
+        mkdir dist
+        cp BilletteraPrintAgent-arm64 dist/BilletteraPrintAgent
+        cp build/LISEZ-MOI-macOS.txt dist/LISEZ-MOI.txt
+        chmod +x dist/BilletteraPrintAgent
+
+    - name: Upload macOS ARM64 artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: billettera-print-agent-macos-arm64
+        path: dist/

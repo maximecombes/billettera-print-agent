@@ -1,0 +1,69 @@
+╔═══════════════════════════════════════════════════════════════════╗
+║           BILLETTERA PRINT AGENT - macOS                          ║
+║           Agent d'impression pour billettera.com                  ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+INSTALLATION
+============
+
+1. Extraire ce fichier ZIP
+
+2. Déplacer BilletteraPrintAgent dans le dossier Applications
+   (optionnel mais recommandé)
+
+3. IMPORTANT - Premier lancement :
+
+   ⚠️  Ne pas double-cliquer directement !
+
+   → Faire un CLIC DROIT sur BilletteraPrintAgent
+   → Sélectionner "Ouvrir"
+   → macOS affiche "Voulez-vous vraiment l'ouvrir ?"
+   → Cliquer sur "Ouvrir"
+
+   Cette manipulation n'est nécessaire qu'au premier lancement.
+   Ensuite, un double-clic normal fonctionnera.
+
+4. Une icône "Billettera" apparaît dans la barre de menu
+   (en haut à droite de l'écran)
+
+
+UTILISATION
+===========
+
+- L'agent fonctionne en arrière-plan
+- Il écoute les commandes de billettera.com sur le port 19195
+- Pour quitter : clic sur l'icône → "Quitter"
+
+
+DÉMARRAGE AUTOMATIQUE (optionnel)
+=================================
+
+Pour lancer l'agent automatiquement au démarrage de macOS :
+
+1. Ouvrir "Préférences Système" → "Utilisateurs et groupes"
+2. Sélectionner votre compte
+3. Cliquer sur l'onglet "Ouverture"
+4. Cliquer sur "+" et ajouter BilletteraPrintAgent
+
+
+CONFIGURATION (optionnel)
+=========================
+
+Créer un fichier "config.json" à côté de l'exécutable :
+
+{
+    "port": 19195,
+    "allowed_origins": ["https://billettera.com"],
+    "default_printer": "EPSON_TM_T20III"
+}
+
+
+SUPPORT
+=======
+
+En cas de problème : support@billettera.com
+Site web : https://billettera.com
+
+
+Version : 1.0.0
+Copyright (c) 2026 Billettera - Tous droits réservés

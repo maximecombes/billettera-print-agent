@@ -1,0 +1,40 @@
+# Binaires
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+BilletteraPrintAgent
+
+# Dossiers de build
+build/windows/*.exe
+build/darwin-amd64/
+build/darwin-arm64/
+build/linux/
+build/*.zip
+
+# Tests
+*.test
+*.out
+coverage.html
+
+# Dépendances
+vendor/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Config locale (peut contenir des infos sensibles)
+config.json
+
+# Logs
+*.log
+logs/

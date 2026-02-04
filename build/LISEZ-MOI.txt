@@ -1,0 +1,64 @@
+═══════════════════════════════════════════════════════════════════
+                    BILLETTERA PRINT AGENT
+                        Version 1.0.0
+═══════════════════════════════════════════════════════════════════
+
+DESCRIPTION
+-----------
+Billettera Print Agent est un utilitaire qui permet à la plateforme
+billettera.com de communiquer avec votre imprimante à tickets et
+votre tiroir-caisse.
+
+
+INSTALLATION
+------------
+1. Placez le fichier exécutable où vous le souhaitez
+   (par exemple : C:\Program Files\Billettera\ ou sur le Bureau)
+
+2. Double-cliquez sur BilletteraPrintAgent.exe pour lancer l'agent
+
+3. Une icône apparaît dans la barre des tâches (près de l'horloge)
+
+4. L'agent est prêt ! Vous pouvez utiliser la caisse sur billettera.com
+
+
+UTILISATION
+-----------
+• L'agent doit être lancé AVANT d'utiliser la caisse sur billettera.com
+• Laissez l'agent ouvert pendant toute votre session de caisse
+• Pour fermer l'agent : clic droit sur l'icône → Quitter
+
+
+DÉMARRAGE AUTOMATIQUE (optionnel)
+---------------------------------
+Pour que l'agent se lance automatiquement au démarrage de Windows :
+
+1. Appuyez sur Win+R
+2. Tapez : shell:startup
+3. Créez un raccourci de BilletteraPrintAgent.exe dans ce dossier
+
+
+DÉPANNAGE
+---------
+Problème : "Connexion impossible" sur billettera.com
+→ Vérifiez que l'agent est bien lancé (icône dans la barre des tâches)
+
+Problème : L'imprimante n'apparaît pas dans la liste
+→ Vérifiez que l'imprimante est installée dans Windows
+→ Vérifiez que l'imprimante est allumée et connectée
+
+Problème : Le tiroir-caisse ne s'ouvre pas
+→ Vérifiez que le tiroir est connecté à l'imprimante (câble RJ11)
+→ Certains modèles nécessitent une configuration spécifique
+
+
+SUPPORT
+-------
+En cas de problème, contactez le support Billettera :
+• Email : support@billettera.com
+• Site : https://billettera.com
+
+
+═══════════════════════════════════════════════════════════════════
+              © 2026 Billettera - Tous droits réservés
+═══════════════════════════════════════════════════════════════════

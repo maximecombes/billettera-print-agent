@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(go mod tidy:*)",
+      "Bash(wget:*)",
+      "Bash(sudo tar:*)",
+      "Bash(~/.bashrc)",
+      "Bash(export PATH=$PATH:/usr/local/go/bin)",
+      "Bash(go version:*)",
+      "Bash(export PATH=~/go-sdk/go/bin:$PATH)",
+      "Bash(export GOPATH=~/go)",
+      "Bash(GOOS=windows GOARCH=amd64 go build:*)",
+      "Bash(GOOS=darwin GOARCH=amd64 go build:*)"
+    ]
+  }
+}
