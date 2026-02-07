@@ -120,7 +120,9 @@ jobs:
         mkdir dist
         cp BilletteraPrintAgent-arm64 dist/BilletteraPrintAgent
         cp build/LISEZ-MOI-macOS.txt dist/LISEZ-MOI.txt
-        chmod +x dist/BilletteraPrintAgent
+        cp build/install-macos.sh dist/install.sh
+        chmod +x dist/BilletteraPrintAgent dist/install.sh
+        
 
     - name: Upload macOS ARM64 artifact
       uses: actions/upload-artifact@v4
