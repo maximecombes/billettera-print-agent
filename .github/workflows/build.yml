@@ -49,7 +49,7 @@ jobs:
   # BUILD MACOS (Intel)
   # ============================================
   build-macos:
-    runs-on: macos-15-intel
+    runs-on: macos-latest
 
     steps:
     - name: Checkout code
@@ -88,7 +88,7 @@ jobs:
   # BUILD MACOS (Apple Silicon M1/M2)
   # ============================================
   build-macos-arm64:
-    runs-on: macos-14
+    runs-on: macos-latest
 
     steps:
     - name: Checkout code
@@ -109,6 +109,11 @@ jobs:
         GOARCH: arm64
       run: |
         go build -ldflags="-s -w" -o BilletteraPrintAgent-arm64 ./cmd/agent
+
+    - name: Sign binary (ad-hoc)
+      run: |
+        codesign --force --sign - BilletteraPrintAgent-arm64
+
 
     - name: Create distribution folder
       run: |
